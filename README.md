@@ -9,18 +9,32 @@ If you want to use this *TimeLine*  in your project, you have to do the followin
 mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 ```
 
-- Use the `ItemDecoration` of this project [ItemDecoration.java](https://github.com/vivian8725118/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/timeline1/ItemDecoration.java)
-```
-mRecyclerView.addItemDecoration(new ItemDecoration(this,100));
-```
-The second ctor-parameter will define the `distance`. In that case 100px.
+- Use the `ItemDecoration` of this project [StaggeredGridItemDecoration.java]
+(https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/itemdecoration/StaggeredGridItemDecoration.java)
+we use the builder model to set the style...
 
-Currently there are 2 styles available, as seen in the Screenshots. You can find the implementation for the second style here. [ItemDecoration2.java](https://github.com/vivian8725118/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/timeline2/ItemDecoration2.java)  
+```
+    StaggeredGridItemDecoration itemDecoration = new StaggeredGridItemDecoration.
+                                                        Builder(this).
+                                                        setTopDistance(50).
+                                                        setItemInterval(10).
+                                                        setLineWidth(2).
+                                                        setDotRadius(4).
+                                                        setDotOffset(8).
+                                                        setBottomTextOffset(25).
+                                                        setLineColor(Color.RED).
+                                                        setDotColor(Color.BLUE).
+                                                        setTextColor(Color.GREEN).
+                                                        setTextSize(40).
+                                                        setTextEnd("Micro").
+                                                        create();
+                                                        
+
+```
 
 ## Example
 <div>
-<image hspace="20" src="https://github.com/vivian8725118/TimeLine/blob/master/art/FEDD719A6C84658E728E03762C5334AE.jpg" width=40% height=40%/>
-<image src="https://github.com/vivian8725118/TimeLine/blob/master/art/A6A1B601503A23E054ABC9B205B2131F.png?raw=true" width=40% height=40%/>
+    <image src="https://github.com/Microhx/TimeLine/blob/master/art/Screenshot_for_result.png?raw=true" width=40% height=40%/>
 </div>
 
 # License
