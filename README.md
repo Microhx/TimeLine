@@ -9,8 +9,8 @@ If you want to use this *TimeLine*  in your project, you have to do the followin
 mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 ```
 
-- Use the `ItemDecoration` of this project <a href="https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/itemdecoration/StaggeredGridItemDecoration.java">StaggeredGridItemDecoration.java<a/>
-  Use the 'ItemDecorationStateListener' <a href="https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/inter/ItemDecorationStateListener.java">ItemDecorationStateListener</a>
+- Use the `ItemDecoration` of this project <a href="https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/itemdecoration/StaggeredGridItemDecoration.java">StaggeredGridItemDecoration.java<a/><br/>
+  Use the 'ItemDecorationStateListener' <a href="https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/inter/ItemDecorationStateListener.java">ItemDecorationStateListener</a><br/>
   Use the 'Utils' <a href="https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/util/Util.java">Utils</a>
 ```
     StaggeredGridItemDecoration itemDecoration = new StaggeredGridItemDecoration.
@@ -49,8 +49,7 @@ mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLa
     void onItemState(View targetView , int index);
    }
 
-   this example use :
-
+   //this example use :
    @Override
    public void onItemState(View targetView, int position) {
      if (position % 2 == 0) {  //on the left
@@ -59,7 +58,6 @@ mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLa
         targetView.setBackgroundResource(R.drawable.pop_right);
      }
    }
-
 
 ```
 
