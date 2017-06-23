@@ -9,9 +9,7 @@ If you want to use this *TimeLine*  in your project, you have to do the followin
 mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 ```
 
-- Use the `ItemDecoration` of this project [StaggeredGridItemDecoration.java]
-(https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/itemdecoration/StaggeredGridItemDecoration.java)
-we use the builder model to set the style...
+- Use the `ItemDecoration` of this project <a href="https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/itemdecoration/StaggeredGridItemDecoration.java">StaggeredGridItemDecoration.java<a/>
 
 ```
     StaggeredGridItemDecoration itemDecoration = new StaggeredGridItemDecoration.
@@ -31,6 +29,28 @@ we use the builder model to set the style...
                                                         
 
 ```
+
+- Also, this is listener for the callback ,named for ItemDecorationStateListener:
+```
+
+   public interface ItemDecorationStateListener {
+
+    /**
+     *
+     * @param targetView this is the targetView , in ItemViewHolder
+     * @param span Index
+     */
+    void onItemState(View targetView , int index);
+
+}
+```
+
+- Use with RecyclerView:
+```
+ mRecyclerView.addItemDecoration(itemDecoration);
+```
+
+
 
 ## Example
 <div>
