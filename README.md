@@ -10,21 +10,22 @@ mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLa
 ```
 
 - Use the `ItemDecoration` of this project <a href="https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/itemdecoration/StaggeredGridItemDecoration.java">StaggeredGridItemDecoration.java<a/>
-
+  Use the 'ItemDecorationStateListener' <a href="https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/inter/ItemDecorationStateListener.java">ItemDecorationStateListener</a>
+  Use the 'Utils' <a href="https://github.com/Microhx/TimeLine/blob/master/app/src/main/java/com/vivian/timeline/util/Util.java">Utils</a>
 ```
     StaggeredGridItemDecoration itemDecoration = new StaggeredGridItemDecoration.
                                                         Builder(this).
-                                                        setTopDistance(50).
-                                                        setItemInterval(10).
-                                                        setLineWidth(2).
-                                                        setDotRadius(4).
-                                                        setDotOffset(8).
-                                                        setBottomTextOffset(25).
-                                                        setLineColor(Color.RED).
-                                                        setDotColor(Color.BLUE).
-                                                        setTextColor(Color.GREEN).
-                                                        setTextSize(40).
-                                                        setTextEnd("Micro").
+                                                        setTopDistance(50).    //for the top distance
+                                                        setItemInterval(10).   //for the each item interval
+                                                        setLineWidth(2).       //the center line width [dp]
+                                                        setDotRadius(4).       //the dot radius [dp]
+                                                        setDotOffset(8).       //the dot and the itemView offset [dp]
+                                                        setBottomTextOffset(25).   //the bottom text offset [dp]
+                                                        setLineColor(Color.RED).   //the center line color
+                                                        setDotColor(Color.BLUE).   //the dot background color
+                                                        setTextColor(Color.GREEN).  //the bottom text color
+                                                        setTextSize(40).            //the bottom text size [sp]
+                                                        setTextEnd("Micro").        //the bottom text default is "end"
                                                         create();
                                                         
 
@@ -37,12 +38,29 @@ mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLa
 
     /**
      *
-     * @param targetView this is the targetView , in ItemViewHolder
+     * @param targetView this is the targetView
      * @param span Index
+     *
+     * the spanIndex is between 0 - spanCount-1 , we can use the index
+     * to judge the targetView is on the left or on the right , or on
+     * other somewhere....
+     *
      */
     void onItemState(View targetView , int index);
+   }
 
-}
+   this example use :
+
+   @Override
+   public void onItemState(View targetView, int position) {
+     if (position % 2 == 0) {  //on the left
+        targetView.setBackgroundResource(R.drawable.pop_left);
+     } else {  //on the right
+        targetView.setBackgroundResource(R.drawable.pop_right);
+     }
+   }
+
+
 ```
 
 - Use with RecyclerView:
@@ -59,7 +77,7 @@ mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLa
 
 # License
 
-    Copyright 2017 Vivian
+    Copyright 2017 Micro
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

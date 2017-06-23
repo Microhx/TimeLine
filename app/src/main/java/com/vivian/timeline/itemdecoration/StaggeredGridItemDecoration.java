@@ -6,13 +6,20 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.TextUtils;
 import android.view.View;
 
 import com.vivian.timeline.inter.ItemDecorationStateListener;
 import com.vivian.timeline.util.Util;
 
-
+/**
+ * author : micro_hx <p>
+ * desc : <p>
+ * email: javainstalling@163.com <p>
+ * date : 2017/6/23 - 10:57 <p>
+ * interface :
+ */
 public class StaggeredGridItemDecoration extends RecyclerView.ItemDecoration {
 
     //the top item
@@ -81,8 +88,10 @@ public class StaggeredGridItemDecoration extends RecyclerView.ItemDecoration {
             outRect.top = 2 * mTopDistance;
         }
 
-        if (null != mItemDecorationStateListener) {
-            mItemDecorationStateListener.onItemState(view, position);
+        StaggeredGridLayoutManager.LayoutParams params = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
+        int spanIndex = params.getSpanIndex();
+        if (null != mItemDecorationStateListener && spanIndex != -1) {
+            mItemDecorationStateListener.onItemState(view, spanIndex);
         }
     }
 

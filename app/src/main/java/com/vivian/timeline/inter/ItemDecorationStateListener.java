@@ -19,5 +19,4 @@ public interface ItemDecorationStateListener {
      */
     void onItemState(View targetView , int position);
 
-
 }
