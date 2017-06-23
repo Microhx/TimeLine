@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/purple_bg"
+    android:background="#988966"
     android:orientation="vertical"
     tools:context="com.vivian.timeline.timeline1.MainActivity">
 

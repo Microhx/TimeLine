@@ -1,5 +1,7 @@
 package com.vivian.timeline.util;
 
+import android.content.Context;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,4 +28,31 @@ public class Util {
         String dateString = formatter.format(currentTime);
         return dateString;
     }
+
+
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
+    public static int dip2sp(Context context, float dipValue) {
+        int pxValue = dip2px(context, dipValue);
+        return px2sp(context, pxValue);
+    }
+
+    /**
+     * 将px值转换为sp值，保证文字大小不变
+     *
+     * @param pxValue
+     *            （DisplayMetrics类中属性scaledDensity）
+     * @return
+     */
+    private static int px2sp(Context context, float pxValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / fontScale + 0.5f);
+    }
+
+
+
+
 }
